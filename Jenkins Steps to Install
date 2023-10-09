@@ -1,0 +1,33 @@
+#Jenkins Installation on ubuntu 22.04
+
+Prequsists:
+JDK should be installed in your ubuntu first if not should be installed.
+
+#Execute the below commands one by one to install jenkins
+
+Step 1 — Installing Jenkins
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins
+
+Step 2 — Starting Jenkins
+
+sudo systemctl start jenkins.service
+sudo systemctl status jenkins
+
+Step 3 — Opening the Firewall
+
+sudo apt-get install ufw
+sudo ufw allow 8080
+sudo ufw disable
+
+Step 4 — Setting Up Jenkins
+
+http://your_server_ip_or_domain:8080
+
+#unlock jenkins 
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+Install suggested plugins
+create username and passwoord
